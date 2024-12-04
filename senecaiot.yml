@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seneca-iot-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seneca-iot
+  template:
+    metadata:
+      labels:
+        app: seneca-iot
+    spec:
+      containers:
+      - name: seneca-iot-container
+        image: ssivakumar33/seneca-iot-tml-kafka-amd64_modification
+        ports:
+        - containerPort: 9005
+
